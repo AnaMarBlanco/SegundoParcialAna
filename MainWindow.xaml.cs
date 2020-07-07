@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SegundoPacialAna.UI.Registros;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,12 @@ namespace SegundoPacialAna
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void RProyectos_Click(object sender, RoutedEventArgs e)
+        {
+            registroProyectos rp = new registroProyectos();
+            rp.ShowDialog();
         }
     }
 }

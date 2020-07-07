@@ -13,7 +13,15 @@ namespace SegundoPacialAna.DAL
         public DbSet<Proyectos> Proyectos { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite("DATA/Database.db");
+            optionsBuilder.UseSqlite("Data source= DATA/Database.db");
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Tipos>().HasData(new Tipos { TipoId = 1, TipoTarea = "Analisis" });
+            modelBuilder.Entity<Tipos>().HasData(new Tipos { TipoId = 2, TipoTarea = "Diseño"});
+            modelBuilder.Entity<Tipos>().HasData(new Tipos { TipoId = 3, TipoTarea = "Programación" });
+            modelBuilder.Entity<Tipos>().HasData(new Tipos { TipoId = 4, TipoTarea = "Prueba" });
         }
     }
 }

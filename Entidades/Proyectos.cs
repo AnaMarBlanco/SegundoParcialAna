@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace SegundoPacialAna.Entidades
@@ -9,9 +10,12 @@ namespace SegundoPacialAna.Entidades
     {
         [Key]
         public int ProyectoId { get; set; }
-        public DateTime Fecha { get; set; }
+        public DateTime Fecha { get; set; } = DateTime.Now;
+        public string Descripcion { get; set; }
+        public int TiempoTotal { get; set; }
 
-        public List<TareasDetalle> Detalles = new List<TareasDetalle>();
+        [ForeignKey("ProyectoId")]
+        public List<TareasDetalle> Detalles { get; set; } = new List<TareasDetalle>();
 
         
     }
